@@ -2,14 +2,66 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>The system is failing...</title>
-    <link rel="stylesheet" href="styles.css"
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM FAILURE - Access Granted</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <img src="matrix.jpg">
+    <canvas id="matrix-rain"></canvas>
 
+    <div class="container">
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="terminal-title">root@sysfail:~$</span>
+          <div class="terminal-buttons">
+            <span class="btn-close"></span>
+            <span class="btn-minimize"></span>
+            <span class="btn-maximize"></span>
+          </div>
+        </div>
 
+        <div class="terminal-body">
+          <div class="typewriter">
+            <h1>SYSTEM_FAILURE_DETECTED</h1>
+          </div>
 
+          <div class="console-output">
+            <p class="fade-in" style="animation-delay: 2s">> Initializing neural network...</p>
+            <p class="fade-in" style="animation-delay: 2.5s">> Loading consciousness.exe...</p>
+            <p class="fade-in" style="animation-delay: 3s">> <span class="success">SUCCESS</span></p>
+            <p class="fade-in" style="animation-delay: 3.5s">> Welcome to the void.</p>
+          </div>
+
+          <div class="glitch-text fade-in" style="animation-delay: 4s" data-text="THE NET IS VAST">
+            THE NET IS VAST
+          </div>
+
+          <div class="links fade-in" style="animation-delay: 4.5s">
+            <a href="#" class="matrix-link" data-hover="JACK_IN">[ENTER THE MATRIX]</a>
+            <a href="#" class="matrix-link" data-hover="DECRYPT">[ACCESS FILES]</a>
+            <a href="#" class="matrix-link" data-hover="TRANSMIT">[SEND MESSAGE]</a>
+          </div>
+
+          <div class="ascii-art fade-in" style="animation-delay: 5s">
+            <pre>
+    ╔═══════════════════════════╗
+    ║  "There is no spoon"      ║
+    ║  - Neo, The Matrix        ║
+    ╚═══════════════════════════╝
+            </pre>
+          </div>
+
+          <div class="status-bar fade-in" style="animation-delay: 5.5s">
+            <span class="blinking-cursor">█</span> AWAITING INPUT...
+          </div>
+        </div>
+      </div>
+
+      <div class="floating-image">
+        <img src="matrix.jpg" alt="Matrix Code">
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
