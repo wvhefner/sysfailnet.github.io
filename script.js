@@ -1,152 +1,146 @@
-// Matrix Rain Effect
-const canvas = document.getElementById('matrix-rain');
-const ctx = canvas.getContext('2d');
+// ============================================
+// SYSFAIL.NET — Particle Network + Interactions
+// ============================================
 
-// Set canvas size
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+(function () {
+  'use strict';
 
-// Matrix characters - mixture of katakana, numbers, and symbols
-const matrixChars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*()_+-=[]{}|;:,.<>?';
-const chars = matrixChars.split('');
+  // --- Particle Network Background ---
+  const canvas = document.getElementById('particle-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
 
-const fontSize = 16;
-const columns = canvas.width / fontSize;
+  let width, height, particles, animationId;
+  const PARTICLE_COUNT_FACTOR = 0.00004; // particles per pixel²
+  const CONNECTION_DISTANCE = 150;
+  const PARTICLE_SPEED = 0.3;
+  const PARTICLE_SIZE = 1.5;
 
-// Array to store y-position of each drop
-const drops = [];
-for (let i = 0; i < columns; i++) {
-  drops[i] = Math.random() * -100;
-}
-
-// Draw the Matrix rain
-function drawMatrix() {
-  // Semi-transparent black background for trail effect
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = '#00ff00';
-  ctx.font = fontSize + 'px monospace';
-
-  for (let i = 0; i < drops.length; i++) {
-    // Random character
-    const text = chars[Math.floor(Math.random() * chars.length)];
-
-    // Draw the character
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    // Reset drop to top randomly after it crosses screen
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
-
-    // Increment y-coordinate
-    drops[i]++;
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   }
-}
 
-// Animation loop
-setInterval(drawMatrix, 50);
-
-// Resize canvas when window is resized
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  // Recalculate columns
-  const newColumns = canvas.width / fontSize;
-  drops.length = 0;
-  for (let i = 0; i < newColumns; i++) {
-    drops[i] = Math.random() * -100;
-  }
-});
-
-// Add click effect to terminal buttons
-document.querySelector('.btn-close').addEventListener('click', () => {
-  if (confirm('Are you sure you want to exit the Matrix?')) {
-    document.body.innerHTML = '<div style="color: #00ff00; font-family: monospace; text-align: center; padding-top: 50vh; font-size: 2rem;">Connection terminated...</div>';
-  }
-});
-
-document.querySelector('.btn-minimize').addEventListener('click', () => {
-  document.querySelector('.terminal').style.transform = 'scale(0.5)';
-  setTimeout(() => {
-    document.querySelector('.terminal').style.transform = 'scale(1)';
-  }, 1000);
-});
-
-document.querySelector('.btn-maximize').addEventListener('click', () => {
-  document.querySelector('.terminal').style.transform = 'scale(1.1)';
-  setTimeout(() => {
-    document.querySelector('.terminal').style.transform = 'scale(1)';
-  }, 1000);
-});
-
-// Add smooth transition for terminal
-document.querySelector('.terminal').style.transition = 'transform 0.5s ease';
-
-// Easter egg: Konami code detector
-let konamiCode = [];
-const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-
-document.addEventListener('keydown', (e) => {
-  konamiCode.push(e.key);
-  konamiCode = konamiCode.slice(-10);
-
-  if (konamiCode.join(',') === konamiSequence.join(',')) {
-    triggerEasterEgg();
-  }
-});
-
-function triggerEasterEgg() {
-  // Change colors to rainbow
-  const terminal = document.querySelector('.terminal');
-  terminal.style.animation = 'rainbow 2s infinite';
-
-  // Add rainbow animation
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes rainbow {
-      0% { border-color: #ff0000; box-shadow: 0 0 50px #ff0000; }
-      16% { border-color: #ff7f00; box-shadow: 0 0 50px #ff7f00; }
-      33% { border-color: #ffff00; box-shadow: 0 0 50px #ffff00; }
-      50% { border-color: #00ff00; box-shadow: 0 0 50px #00ff00; }
-      66% { border-color: #0000ff; box-shadow: 0 0 50px #0000ff; }
-      83% { border-color: #4b0082; box-shadow: 0 0 50px #4b0082; }
-      100% { border-color: #9400d3; box-shadow: 0 0 50px #9400d3; }
-    }
-  `;
-  document.head.appendChild(style);
-
-  alert('🎮 KONAMI CODE ACTIVATED! 🎮\nYou found the secret!');
-}
-
-// Random glitch effect on page load
-function randomGlitch() {
-  const glitchText = document.querySelector('.glitch-text');
-  const originalText = glitchText.textContent;
-
-  const glitchChars = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`';
-  let glitched = '';
-
-  for (let i = 0; i < originalText.length; i++) {
-    if (Math.random() > 0.7) {
-      glitched += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-    } else {
-      glitched += originalText[i];
+  function createParticles() {
+    const count = Math.floor(width * height * PARTICLE_COUNT_FACTOR);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * PARTICLE_SPEED,
+        vy: (Math.random() - 0.5) * PARTICLE_SPEED,
+      });
     }
   }
 
-  glitchText.textContent = glitched;
+  function drawParticles() {
+    ctx.clearRect(0, 0, width, height);
 
-  setTimeout(() => {
-    glitchText.textContent = originalText;
-  }, 100);
-}
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-// Trigger random glitch every 5-10 seconds
-setInterval(() => {
-  if (Math.random() > 0.5) {
-    randomGlitch();
+        if (dist < CONNECTION_DISTANCE) {
+          const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.15;
+          ctx.strokeStyle = `rgba(0, 255, 65, ${opacity})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw particles
+    for (const p of particles) {
+      ctx.fillStyle = 'rgba(0, 255, 65, 0.4)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, PARTICLE_SIZE, 0, Math.PI * 2);
+      ctx.fill();
+    }
   }
-}, Math.random() * 5000 + 5000);
+
+  function updateParticles() {
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+    }
+  }
+
+  function animate() {
+    updateParticles();
+    drawParticles();
+    animationId = requestAnimationFrame(animate);
+  }
+
+  resize();
+  createParticles();
+  animate();
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      resize();
+      createParticles();
+    }, 200);
+  });
+
+  // --- Scroll Reveal ---
+  const revealElements = document.querySelectorAll('.reveal, .manifesto-block, .project-card');
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Stagger animation for sibling elements
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  revealElements.forEach((el, i) => {
+    el.dataset.delay = i * 100;
+    revealObserver.observe(el);
+  });
+
+  // --- Mobile Nav Toggle ---
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  // --- Active Nav Link ---
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+})();
