@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reading /proc without root — sysfail.net</title>
+  <meta name="description" content="Linux's /proc filesystem exposes a surprising amount of information even to unprivileged users.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">sys<span class="accent">fail</span>.net</a>
+        <nav>
+          <a href="/">writing</a>
+          <a href="/about.html">about</a>
+          <a href="https://github.com/sysfailnet" target="_blank" rel="noopener">github</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <article>
+
+        <div class="post-header">
+          <div class="post-meta">
+            <span>2025-01-22</span>
+            <span>8 min read</span>
+            <span class="tag">linux</span>
+            <span class="tag">internals</span>
+          </div>
+          <h1 class="post-title">reading /proc without root: what's actually visible</h1>
+          <p class="post-lede">Linux's /proc filesystem is a window into the running system. Here's exactly what you can and can't see as a regular user.</p>
+        </div>
+
+        <div class="prose">
+          <p><code>/proc</code> is a virtual filesystem that exposes kernel data structures as files. Every running process gets a directory — <code>/proc/&lt;pid&gt;</code> — and inside that directory are dozens of files exposing process state. It's how tools like <code>ps</code>, <code>top</code>, and <code>lsof</code> actually work: they're all just reading from <code>/proc</code>.</p>
+
+          <p>Most documentation treats <code>/proc</code> as if you're always root. But what can a regular user actually see?</p>
+
+          <h2>The basics: what's always visible</h2>
+          <p>Any user can list <code>/proc</code> and see all PID directories. The PIDs themselves aren't secret — you can enumerate every process on the system just by calling <code>os.listdir("/proc")</code> and filtering for numeric entries.</p>
+
+          <p>For each PID directory, a few files are world-readable regardless of process ownership:</p>
+
+          <ul>
+            <li><code>/proc/&lt;pid&gt;/comm</code> — the short process name (up to 15 chars)</li>
+            <li><code>/proc/&lt;pid&gt;/cmdline</code> — the full command line, null-delimited</li>
+            <li><code>/proc/&lt;pid&gt;/stat</code> — process status in a compact fixed format</li>
+            <li><code>/proc/&lt;pid&gt;/status</code> — the same info, human-readable, including UIDs</li>
+          </ul>
+
+          <p>That's already quite a lot. With just <code>comm</code> and <code>status</code> you can build a basic process table with usernames — no root required.</p>
+
+          <h2>Where it gets gated: /proc/&lt;pid&gt;/fd</h2>
+          <p>The <code>fd</code> directory contains a symlink for each open file descriptor, pointing to the actual file path, socket, or pipe. This is the most forensically interesting data in <code>/proc</code>, and it's protected accordingly.</p>
+
+          <p>The <code>fd</code> directory is only readable by the process owner or root. Try to list it as a different user and you get <code>EACCES</code>. This is enforced by the kernel — there's no workaround short of privilege escalation.</p>
+
+          <pre><code>$ ls /proc/1234/fd
+ls: cannot open directory '/proc/1234/fd': Permission denied</code></pre>
+
+          <p>This is why tools like <code>lsof</code> ask you to run them as root for full results. They're not being cautious — they literally can't read those entries otherwise.</p>
+
+          <h2>Network state: /proc/net</h2>
+          <p>Here's where it gets interesting. <code>/proc/net/tcp</code>, <code>/proc/net/udp</code>, and their IPv6 variants are world-readable. They list every socket on the system in a hex-encoded format, indexed by inode number.</p>
+
+          <pre><code>$ cat /proc/net/tcp
+  sl  local_address rem_address   st tx_queue rx_queue ... inode
+   0: 0100007F:0035 00000000:0000 0A 00000000:00000000 ... 23456
+   1: 00000000:0016 00000000:0000 0A 00000000:00000000 ... 34567</code></pre>
+
+          <p>Addresses are in little-endian hex; ports in hex; state <code>0A</code> = <code>LISTEN</code>, <code>01</code> = <code>ESTABLISHED</code>. The inode field is what links a socket entry back to a specific process via <code>/proc/&lt;pid&gt;/fd</code>.</p>
+
+          <p>So: as an unprivileged user you can see every open network socket on the system, including remote addresses and connection state. You just can't always attribute them to a specific process without root.</p>
+
+          <h2>Putting it together</h2>
+          <p>If you're writing a tool that reads <code>/proc</code>, the practical implication is: design to degrade gracefully when permissions are denied. Catching <code>OSError</code> on <code>fd</code> reads and emitting a placeholder is enough — you still get the process name and owner from <code>comm</code> and <code>status</code>.</p>
+
+          <p>The access-denied case is informative in itself. If your scanner is hitting permission errors on every <code>fd</code> read, that's a clear signal it needs elevation. Better to report that explicitly than to silently drop entries.</p>
+
+          <pre><code>def proc_open_fds(pid, socket_map):
+    fd_dir = f"/proc/{pid}/fd"
+    try:
+        fds = os.listdir(fd_dir)
+    except OSError:
+        yield ("?", "&lt;access denied&gt;")
+        return
+    # ... rest of enumeration</code></pre>
+
+          <h2>A note on namespaces</h2>
+          <p>On modern kernels with network namespaces, <code>/proc/net</code> only shows sockets in your process's own network namespace. Inside a container you'll see only that container's sockets. This doesn't affect most use cases, but it's worth knowing if you're building monitoring tooling that's supposed to see the full host picture — it needs to run in the root namespace, not inside a container.</p>
+
+          <hr>
+
+          <p>The tl;dr: <code>/proc</code> gives you more than most people realize without root, but the most forensically interesting data — open file descriptors — requires either ownership or elevation. Design accordingly, and always handle the permission-denied case explicitly.</p>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="/" class="footer-back">← all posts</a>
+        <div class="footer-links">
+          <a href="https://github.com/sysfailnet" target="_blank" rel="noopener">github</a>
+          <a href="/about.html">about</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">↑</a>
+  <script src="../script.js"></script>
+
+</body>
+</html>
