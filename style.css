@@ -255,6 +255,11 @@ nav a.active {
   margin-bottom: 56px;
 }
 
+.prose .topic-grid {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
 .topic-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
