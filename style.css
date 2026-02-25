@@ -170,7 +170,7 @@ nav a.active {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 22px;
-  color: #d8d8de;
+  color: #9a9aa4;
 }
 
 /* ── Glitch effect ─────────────────────────────────────────── */
@@ -191,13 +191,13 @@ nav a.active {
 }
 
 .glitch::before {
-  color: rgba(0, 180, 200, 0.4);
+  color: rgba(100, 120, 130, 0.3);
   animation: glitch-1 3s infinite linear alternate-reverse;
   clip-path: inset(0 0 80% 0);
 }
 
 .glitch::after {
-  color: rgba(200, 40, 40, 0.35);
+  color: rgba(140, 50, 50, 0.25);
   animation: glitch-2 2.5s infinite linear alternate-reverse;
   clip-path: inset(80% 0 0 0);
 }
@@ -412,7 +412,7 @@ nav a.active {
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
-  color: #fff;
+  color: #9a9aa4;
 }
 
 .about-hero p {
