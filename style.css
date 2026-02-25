@@ -170,7 +170,7 @@ nav a.active {
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 22px;
-  color: #fff;
+  color: #d8d8de;
 }
 
 /* ── Glitch effect ─────────────────────────────────────────── */
@@ -191,13 +191,13 @@ nav a.active {
 }
 
 .glitch::before {
-  color: #0ff;
+  color: rgba(0, 180, 200, 0.4);
   animation: glitch-1 3s infinite linear alternate-reverse;
   clip-path: inset(0 0 80% 0);
 }
 
 .glitch::after {
-  color: var(--accent);
+  color: rgba(200, 40, 40, 0.35);
   animation: glitch-2 2.5s infinite linear alternate-reverse;
   clip-path: inset(80% 0 0 0);
 }
