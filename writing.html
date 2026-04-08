@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeremy Hefner</title>
-  <meta name="description" content="Researcher in Cyber Operations, AI, Information Warfare, and Cyberbiosecurity.">
+  <title>Writing — Jeremy Hefner</title>
+  <meta name="description" content="Technical writing on cyber operations, information warfare, AI, and Linux security.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="style.css">
@@ -15,7 +15,7 @@
     <div class="header-inner">
       <a href="/" class="site-name">Jeremy Hefner</a>
       <nav>
-        <a href="/writing.html">Writing</a>
+        <a href="/writing.html" class="active">Writing</a>
         <a href="/publications.html">Publications</a>
         <a href="/portfolio.html">Portfolio</a>
         <a href="/unix.html">Unix</a>
@@ -26,49 +26,9 @@
 
   <main>
 
-    <div class="profile">
-
-      <div class="profile-sidebar">
-        <img
-          src="https://wvhefner.github.io/images/profile.png"
-          alt="Jeremy Hefner"
-          class="profile-photo"
-        >
-        <p class="profile-name">Jeremy Hefner</p>
-        <p class="profile-title">Researcher in Cyber Operations, AI, Information Warfare, and Cyberbiosecurity</p>
-        <p class="profile-location">Portland, OR</p>
-        <div class="profile-links">
-          <a href="mailto:hello@sysfail.net">hello@sysfail.net</a>
-          <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-
-      <div class="profile-content">
-
-        <section>
-          <p class="section-label">About</p>
-          <p>Mr. Hefner is a seasoned security professional operating at the intersection of cybersecurity, intelligence, and human-centric security. With a strong blend of technical expertise and strategic foresight, he helps organizations stay ahead of evolving cyber threats.</p>
-          <p>My research interests lie at the nexus of cyber operations, artificial intelligence, cognitive and information warfare, and cyberbiosecurity.</p>
-        </section>
-
-        <section>
-          <p class="section-label">Research Interests</p>
-          <ul class="interests-list">
-            <li>Information Warfare &amp; Cognitive Warfare</li>
-            <li>Cyber Counterintelligence &amp; Operations</li>
-            <li>Artificial Intelligence &amp; Adversarial ML</li>
-            <li>Linux, Open Source &amp; Embedded Systems</li>
-            <li>Cyberbiosecurity</li>
-            <li>Python &amp; Rust</li>
-          </ul>
-        </section>
-
-      </div>
-    </div>
-
-    <div class="writing-header">
-      <p class="section-label">Recent Writing</p>
-      <a href="/writing.html" class="view-all">All posts &rarr;</a>
+    <div class="page-header">
+      <h1>Writing</h1>
+      <p>Technical analysis and research notes on cyber operations, information warfare, AI, and the systems that define our threat landscape.</p>
     </div>
 
     <ul class="post-list">
@@ -106,6 +66,42 @@
           <div class="post-title"><span>Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</span></div>
           <p class="post-excerpt">Sequencing pipelines are networked, poorly segmented, and full of sensitive data. Mapping the attack surface of modern bioinformatics infrastructure.</p>
           <div class="post-tags"><span class="tag">cyberbiosecurity</span><span class="tag">embedded</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">2025-01-22</span>
+        <div class="post-info">
+          <div class="post-title"><a href="/posts/reading-proc.html">Reading /proc without root: what's actually visible</a></div>
+          <p class="post-excerpt">Linux's /proc filesystem is a window into the running system. Here's exactly what you can and can't see as a regular user.</p>
+          <div class="post-tags"><span class="tag">linux</span><span class="tag">internals</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">2025-01-18</span>
+        <div class="post-info">
+          <div class="post-title"><span>Adversarial patches on embedded vision systems</span></div>
+          <p class="post-excerpt">Physical-world adversarial attacks against edge ML models running on ARM SBCs. Testing robustness on constrained hardware.</p>
+          <div class="post-tags"><span class="tag">AI</span><span class="tag">embedded</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">2025-01-15</span>
+        <div class="post-info">
+          <div class="post-title"><a href="/posts/hello-world.html">Hello, world — why I'm writing here</a></div>
+          <p class="post-excerpt">Every blog starts somewhere. Here's what this one is about and what I expect to write.</p>
+          <div class="post-tags"><span class="tag">meta</span></div>
+        </div>
+      </li>
+
+      <li class="post-item">
+        <span class="post-date">2025-01-10</span>
+        <div class="post-info">
+          <div class="post-title"><span>Python OSINT toolkit: automating open-source collection at scale</span></div>
+          <p class="post-excerpt">A modular Python framework for structured OSINT collection — async scrapers, entity resolution, and graph-based link analysis.</p>
+          <div class="post-tags"><span class="tag">python</span><span class="tag">cyber-ops</span></div>
         </div>
       </li>
 
