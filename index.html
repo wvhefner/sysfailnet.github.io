@@ -3,129 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>System Failure</title>
-  <meta name="description" content="Researcher in Cyber Operations, AI, Information Warfare, and Cyberbiosecurity.">
+  <title>Jeremy Hefner</title>
+  <meta name="description" content="Researcher in Cyber Operations, AI, Information Warfare, and Cyberbiosecurity. Based in Portland, OR.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
+  <!-- ── Navigation ──────────────────────────── -->
+  <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a href="/" class="site-name">Jeremy Hefner</a>
-      <nav>
+      <a href="/" class="header-logo">J.H.</a>
+      <nav class="header-nav">
+        <a href="#research">Research</a>
+        <a href="#credentials">CV</a>
         <a href="/writing.html">Writing</a>
-        <a href="/publications.html">Publications</a>
-        <a href="/portfolio.html">Portfolio</a>
-        <a href="/unix.html">Unix</a>
         <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:hello@sysfail.net" class="nav-contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <div class="profile">
+    <!-- ── Hero ───────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-inner">
 
-      <div class="profile-sidebar">
-        <img
-          src="https://wvhefner.github.io/images/profile.png"
-          alt="Jeremy Hefner"
-          class="profile-photo"
-        >
-        <p class="profile-name">Jeremy Hefner</p>
-        <p class="profile-title">Researcher in Cyber Operations, AI, Information Warfare, and Cyberbiosecurity</p>
-        <p class="profile-location">Portland, OR</p>
-        <div class="profile-links">
-          <a href="mailto:hello@sysfail.net">hello@sysfail.net</a>
-          <a href="https://github.com/wvhefner" target="_blank" rel="noopener">github.com/wvhefner</a>
-          <a href="/writing.html">sysfail.net/writing</a>
+        <div class="hero-left">
+          <p class="hero-eyebrow">Security Researcher &amp; Practitioner</p>
+          <h1 class="hero-name">
+            <span class="name-first">Jeremy</span>
+            <span class="name-last">Hefner</span>
+          </h1>
+          <div class="hero-rule"></div>
+          <p class="hero-tagline">Studying the systems that shape conflict — technical, cognitive, and biological.</p>
+          <div class="hero-meta">
+            <span class="hero-location">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.1 12.5 7.8 13.2a.3.3 0 0 0 .4 0C12.9 22.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+              Portland, OR
+            </span>
+          </div>
+          <div class="hero-links">
+            <a href="mailto:hello@sysfail.net" class="hero-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              hello@sysfail.net
+            </a>
+            <a href="https://github.com/wvhefner" target="_blank" rel="noopener" class="hero-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              github.com/wvhefner
+            </a>
+            <a href="https://wvhefner.github.io/cv/" target="_blank" rel="noopener" class="hero-link hero-link--cv">
+              Curriculum Vitae &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="photo-frame">
+            <img
+              src="https://wvhefner.github.io/images/profile.png"
+              alt="Jeremy Hefner"
+              class="profile-photo"
+            >
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── About ───────────────────────────────── -->
+    <section class="section" id="about">
+      <div class="section-inner section-inner--wide">
+        <div class="about-grid">
+          <div class="about-label">
+            <span class="eyebrow">About</span>
+          </div>
+          <div class="about-body">
+            <p class="about-lead">Security professional operating at the intersection of cybersecurity, intelligence, and human-centric security.</p>
+            <p>With a foundation in both technical systems and strategic analysis, I focus on understanding and countering adversarial behavior across digital, cognitive, and biological domains. My work blends hands-on technical practice with academic research — building the kind of depth that static checklists and compliance frameworks never capture.</p>
+            <p>I hold a CISSP and multiple GIAC certifications, and I am currently completing a Master of Arts in Intelligence and Security Studies at Augusta University.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="profile-content">
+    <!-- ── Research ────────────────────────────── -->
+    <section class="section section--alt" id="research">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="eyebrow">Research Interests</span>
+          <h2 class="section-title">Work at the Nexus of Adversarial Systems</h2>
+        </div>
 
-        <section>
-          <p class="section-label">About</p>
-          <p>Security professional operating at the intersection of cybersecurity, intelligence, and human-centric security. Technical practitioner with strategic foresight — helping organizations understand and counter evolving adversarial threats.</p>
-          <p>Research at the nexus of cyber operations, artificial intelligence, cognitive and information warfare, and cyberbiosecurity.</p>
-        </section>
+        <div class="research-grid">
 
-        <section>
-          <p class="section-label">Research Interests</p>
-          <ul class="interests-list">
-            <li>Information Warfare &amp; Cognitive Warfare</li>
-            <li>Cyber Counterintelligence &amp; Operations</li>
-            <li>Artificial Intelligence &amp; Adversarial ML</li>
-            <li>Linux, Open Source &amp; Embedded Systems</li>
-            <li>Cyberbiosecurity</li>
-            <li>Python &amp; Rust</li>
-          </ul>
-        </section>
+          <div class="research-card">
+            <div class="research-card-number">01</div>
+            <h3 class="research-card-title">Cyber Operations &amp; Counterintelligence</h3>
+            <p class="research-card-body">Active measures, threat actor tradecraft, offensive and defensive operations, and the methodologies for identifying and countering adversary campaigns at scale.</p>
+            <div class="research-card-tags">
+              <span>OSINT</span><span>Threat Intel</span><span>eBPF</span><span>Rust</span>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-card-number">02</div>
+            <h3 class="research-card-title">Information &amp; Cognitive Warfare</h3>
+            <p class="research-card-body">Influence operations, computational propaganda, perception management, and the systematic weaponization of narrative — and how AI is reshaping the economics of each.</p>
+            <div class="research-card-tags">
+              <span>Influence Ops</span><span>LLMs</span><span>Disinformation</span>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-card-number">03</div>
+            <h3 class="research-card-title">Artificial Intelligence &amp; Adversarial ML</h3>
+            <p class="research-card-body">AI-enabled threat vectors, adversarial machine learning, autonomous systems, and the evolving arms race between computational offense and defense.</p>
+            <div class="research-card-tags">
+              <span>Adversarial ML</span><span>LLMs</span><span>Python</span>
+            </div>
+          </div>
+
+          <div class="research-card">
+            <div class="research-card-number">04</div>
+            <h3 class="research-card-title">Cyberbiosecurity</h3>
+            <p class="research-card-body">The convergence of biological and cyber domains — biosecurity threat modeling, genomic data protection, and the expanding digital-biological attack surface that almost no one is mapping.</p>
+            <div class="research-card-tags">
+              <span>Bioinformatics</span><span>Threat Modeling</span><span>Embedded</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Credentials ─────────────────────────── -->
+    <section class="section" id="credentials">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="eyebrow">Credentials</span>
+          <h2 class="section-title">Education &amp; Certifications</h2>
+        </div>
+
+        <div class="credentials-grid">
+
+          <div class="credentials-col">
+            <h3 class="credentials-col-title">Education</h3>
+            <ul class="edu-list">
+              <li class="edu-item">
+                <div class="edu-degree">M.A. Intelligence &amp; Security Studies</div>
+                <div class="edu-school">Augusta University</div>
+                <div class="edu-year">Expected 2027</div>
+              </li>
+              <li class="edu-item">
+                <div class="edu-degree">M.S. Information Technology</div>
+                <div class="edu-school">Illinois Institute of Technology</div>
+                <div class="edu-year"></div>
+              </li>
+              <li class="edu-item">
+                <div class="edu-degree">B.S. Information Technology</div>
+                <div class="edu-school">Western Governors University</div>
+                <div class="edu-year"></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="credentials-col">
+            <h3 class="credentials-col-title">Certifications</h3>
+            <ul class="cert-list">
+              <li class="cert-item">
+                <span class="cert-badge cert-badge--isc2">ISC²</span>
+                <span class="cert-name">Certified Information Systems Security Professional (CISSP)</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-badge cert-badge--giac">GIAC</span>
+                <span class="cert-name">Cyber Threat Intelligence (GCTI)</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-badge cert-badge--giac">GIAC</span>
+                <span class="cert-name">Certified Intrusion Analyst (GCIA)</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-badge cert-badge--comptia">CompTIA</span>
+                <span class="cert-name">Security+</span>
+              </li>
+              <li class="cert-item">
+                <span class="cert-badge cert-badge--comptia">CompTIA</span>
+                <span class="cert-name">Network+</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Writing ─────────────────────────────── -->
+    <section class="section section--alt" id="writing">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="eyebrow">Writing</span>
+          <h2 class="section-title">Recent Work</h2>
+        </div>
+
+        <div class="writing-list">
+
+          <a href="#" class="writing-item">
+            <div class="writing-meta">
+              <span class="writing-date">Feb 20, 2025</span>
+              <span class="writing-tag">info-war</span>
+            </div>
+            <div class="writing-body">
+              <h3 class="writing-title">LLMs as influence accelerants: automating narrative warfare</h3>
+              <p class="writing-excerpt">How large language models are reshaping the economics of influence operations — and why current detection methods are already obsolete.</p>
+            </div>
+            <div class="writing-arrow">→</div>
+          </a>
+
+          <a href="#" class="writing-item">
+            <div class="writing-meta">
+              <span class="writing-date">Feb 12, 2025</span>
+              <span class="writing-tag">rust</span>
+            </div>
+            <div class="writing-body">
+              <h3 class="writing-title">Building a threat intel pipeline in Rust</h3>
+              <p class="writing-excerpt">Replacing a fragile Python ETL chain with a Rust-based ingestion pipeline. Benchmarks, architecture decisions, and lessons from production.</p>
+            </div>
+            <div class="writing-arrow">→</div>
+          </a>
+
+          <a href="#" class="writing-item">
+            <div class="writing-meta">
+              <span class="writing-date">Feb 3, 2025</span>
+              <span class="writing-tag">linux</span>
+            </div>
+            <div class="writing-body">
+              <h3 class="writing-title">eBPF for counterintelligence: tracing adversary behavior at the kernel level</h3>
+              <p class="writing-excerpt">Using eBPF to instrument Linux systems for real-time detection of lateral movement and data staging without relying on userspace agents.</p>
+            </div>
+            <div class="writing-arrow">→</div>
+          </a>
+
+          <a href="#" class="writing-item">
+            <div class="writing-meta">
+              <span class="writing-date">Jan 26, 2025</span>
+              <span class="writing-tag">biosec</span>
+            </div>
+            <div class="writing-body">
+              <h3 class="writing-title">Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</h3>
+              <p class="writing-excerpt">Sequencing pipelines are networked, poorly segmented, and full of sensitive data. Mapping the attack surface of modern bioinformatics infrastructure.</p>
+            </div>
+            <div class="writing-arrow">→</div>
+          </a>
+
+        </div>
+
+        <div class="writing-footer">
+          <a href="/writing.html" class="all-posts-link">View all writing &rarr;</a>
+        </div>
 
       </div>
-    </div>
-
-    <div class="writing-header">
-      <p class="section-label">Recent Writing</p>
-      <a href="/writing.html" class="view-all">All posts &rarr;</a>
-    </div>
-
-    <ul class="post-list">
-
-      <li class="post-item">
-        <span class="post-date">2025-02-20</span>
-        <div class="post-info">
-          <div class="post-title"><span>LLMs as influence accelerants: automating narrative warfare</span></div>
-          <p class="post-excerpt">How large language models are reshaping the economics of influence operations — and why current detection methods are already obsolete.</p>
-          <div class="post-tags"><span class="tag">info-war</span><span class="tag">AI</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-02-12</span>
-        <div class="post-info">
-          <div class="post-title"><span>Building a threat intel pipeline in Rust</span></div>
-          <p class="post-excerpt">Replacing a fragile Python ETL chain with a Rust-based ingestion pipeline. Benchmarks, architecture decisions, and lessons from production.</p>
-          <div class="post-tags"><span class="tag">rust</span><span class="tag">cyber-ops</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-02-03</span>
-        <div class="post-info">
-          <div class="post-title"><span>eBPF for counterintelligence: tracing adversary behavior at the kernel level</span></div>
-          <p class="post-excerpt">Using eBPF to instrument Linux systems for real-time detection of lateral movement and data staging without relying on userspace agents.</p>
-          <div class="post-tags"><span class="tag">linux</span><span class="tag">counter-intel</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-26</span>
-        <div class="post-info">
-          <div class="post-title"><span>Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</span></div>
-          <p class="post-excerpt">Sequencing pipelines are networked, poorly segmented, and full of sensitive data. Mapping the attack surface of modern bioinformatics infrastructure.</p>
-          <div class="post-tags"><span class="tag">cyberbiosecurity</span><span class="tag">embedded</span></div>
-        </div>
-      </li>
-
-    </ul>
+    </section>
 
   </main>
 
-  <footer>
+  <!-- ── Footer ─────────────────────────────────── -->
+  <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-copy">Static HTML. No tracking. No analytics. No frameworks.</span>
-      <div class="footer-links">
-        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:hello@sysfail.net">Contact</a>
+      <div class="footer-left">
+        <p class="footer-name">Jeremy Hefner</p>
+        <p class="footer-sub">Portland, OR &middot; hello@sysfail.net</p>
       </div>
+      <div class="footer-right">
+        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:hello@sysfail.net">Email</a>
+        <a href="https://wvhefner.github.io/cv/" target="_blank" rel="noopener">CV</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>Static HTML &middot; No tracking &middot; No frameworks</span>
     </div>
   </footer>
 
-  <a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">&uarr;</a>
   <script src="script.js"></script>
 
 </body>
