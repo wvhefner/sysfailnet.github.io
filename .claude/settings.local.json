@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sSL -o \"C:\\\\Users\\\\sysfail\\\\GitHub\\\\sysfailnet.github.io\\\\images\\\\profile.png\" \"https://wvhefner.github.io/images/profile.png\")"
+    ]
+  }
+}
