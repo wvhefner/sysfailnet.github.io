@@ -3,78 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello, world | Jeremy Hefner</title>
+  <title>Hello, world &mdash; Jeremy Hefner</title>
   <meta name="description" content="Every blog starts somewhere. Here's what this one is about.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="/" class="brand">
-          <span class="brand-mark">Sysfail.net</span>
-          <span class="brand-name">Jeremy Hefner</span>
-        </a>
-        <nav class="header-nav" data-nav>
-          <a href="/" class="nav-pill">Home</a>
-          <a href="/about.html" class="nav-pill">About</a>
-          <a href="/writing.html" class="nav-pill">Writing</a>
-          <a href="/unix.html" class="nav-pill">Unix</a>
-          <a href="https://github.com/wvhefner" target="_blank" rel="noopener" class="nav-pill">GitHub</a>
-          <a href="mailto:hello@sysfail.net" class="nav-pill">Contact</a>
-        </nav>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="site-name">Jeremy Hefner <span class="dim">· sysfail.net</span></a>
+      <nav>
+        <a href="/writing.html" class="active">Writing</a>
+        <a href="/publications.html">Publications</a>
+        <a href="/portfolio.html">Portfolio</a>
+        <a href="/unix.html">Unix</a>
+        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <div class="post-header">
+        <div class="post-meta">
+          <span>2025-01-15</span>
+          <span>3 min read</span>
+          <span class="tag">meta</span>
+        </div>
+        <h1>Hello, world &mdash; why I'm writing here</h1>
+        <p class="post-lede">Every blog starts somewhere. Here's what this one is about and what I expect to write.</p>
       </div>
-    </header>
 
-    <main>
-      <article>
-        <div class="post-header">
-          <div class="post-meta">
-            <span>Jan 15 2025</span>
-            <span>3 min read</span>
-            <span class="tag">Meta</span>
-          </div>
-          <h1>Hello, world: why I'm writing here</h1>
-          <p class="post-lede">Every blog starts somewhere. Here's what this one is about and what I expect to write.</p>
-        </div>
+      <div class="prose">
+        <p>I've started blogs before. Usually they die within a few months &mdash; the posts get more ambitious, the drafts pile up, and eventually the gap between what I want to write and what I actually write becomes too wide to close.</p>
 
-        <div class="prose">
-          <p>I've started blogs before. Usually they die within a few months, the posts get more ambitious, the drafts pile up, and eventually the gap between what I want to write and what I actually write becomes too wide to close.</p>
+        <p>This time I'm trying something different: lower expectations, shorter posts, less polish. A place to put things down and move on. If a post is three paragraphs and mostly correct, that's good enough.</p>
 
-          <p>This time I'm trying something different: lower expectations, shorter posts, less polish. A place to put things down and move on. If a post is three paragraphs and mostly correct, that's good enough.</p>
+        <h2>What this is</h2>
+        <p>Primarily a technical site. Most of my time goes into cyber operations and intelligence work, information and cognitive warfare, AI, and thinking about systems at every layer. That is mostly what I will write about.</p>
 
-          <h2>What this is</h2>
-          <p>Primarily a technical blog. I spend most of my time working with Linux systems, writing Python, and poking at security tooling. That's mostly what I'll write about.</p>
+        <p>I'll also write shorter pieces when something is interesting enough to note down. Not every post needs a thesis.</p>
 
-          <p>I'll also write shorter pieces when something is interesting enough to note down. Not every post needs a thesis.</p>
+        <h2>What this isn't</h2>
+        <p>A content strategy. A personal brand. A tutorial site optimized for search traffic.</p>
 
-          <h2>What this isn't</h2>
-          <p>A content strategy. A personal brand. A tutorial site optimized for search traffic.</p>
+        <p>If you find something here useful, great. But I'm writing primarily to think out loud, and secondarily to have a record of what I figured out.</p>
 
-          <p>If you find something here useful, great. But I'm writing primarily to think out loud, and secondarily to have a record of what I figured out.</p>
+        <hr>
 
-          <hr>
-
-          <p>The site is static HTML hosted on GitHub Pages. No framework, no CMS, no comment system. Writing happens in a text editor; publishing is a <code>git push</code>. Roughly as simple as it gets, and that simplicity is part of the point.</p>
-        </div>
-      </article>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="footer-copy">A place for technical notes, practitioner thinking, and work that benefits from being written down clearly.</p>
-        <div class="footer-links">
-          <a href="/writing.html">All posts</a>
-          <a href="/about.html">About</a>
-          <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-        </div>
+        <p>The site is static HTML hosted on GitHub Pages. No framework, no CMS, no comment system. Writing happens in a text editor; publishing is a <code>git push</code>. Roughly as simple as it gets &mdash; and that simplicity is part of the point.</p>
       </div>
-    </footer>
-  </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="/writing.html" class="footer-back">&larr; All posts</a>
+      <div class="footer-links">
+        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+        <a href="/">About</a>
+      </div>
+    </div>
+  </footer>
 
   <a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">&uarr;</a>
   <script src="../script.js"></script>
+
 </body>
 </html>
