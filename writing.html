@@ -3,125 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing — Jeremy Hefner</title>
-  <meta name="description" content="Technical writing on cyber operations, information warfare, AI, and Linux security.">
+  <title>Writing | Jeremy Hefner</title>
+  <meta name="description" content="Technical writing and research notes by Jeremy Hefner on cyber operations, information warfare, and security systems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
-    <div class="header-inner">
-      <a href="/" class="site-name">Jeremy Hefner</a>
-      <nav>
-        <a href="/writing.html" class="active">Writing</a>
-        <a href="/publications.html">Publications</a>
-        <a href="/portfolio.html">Portfolio</a>
-        <a href="/unix.html">Unix</a>
-        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <div class="page-header">
-      <h1>Writing</h1>
-      <p>Technical analysis and research notes on cyber operations, information warfare, AI, and the systems that define our threat landscape.</p>
-    </div>
-
-    <ul class="post-list">
-
-      <li class="post-item">
-        <span class="post-date">2025-02-20</span>
-        <div class="post-info">
-          <div class="post-title"><span>LLMs as influence accelerants: automating narrative warfare</span></div>
-          <p class="post-excerpt">How large language models are reshaping the economics of influence operations — and why current detection methods are already obsolete.</p>
-          <div class="post-tags"><span class="tag">info-war</span><span class="tag">AI</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-02-12</span>
-        <div class="post-info">
-          <div class="post-title"><span>Building a threat intel pipeline in Rust</span></div>
-          <p class="post-excerpt">Replacing a fragile Python ETL chain with a Rust-based ingestion pipeline. Benchmarks, architecture decisions, and lessons from production.</p>
-          <div class="post-tags"><span class="tag">rust</span><span class="tag">cyber-ops</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-02-03</span>
-        <div class="post-info">
-          <div class="post-title"><span>eBPF for counterintelligence: tracing adversary behavior at the kernel level</span></div>
-          <p class="post-excerpt">Using eBPF to instrument Linux systems for real-time detection of lateral movement and data staging without relying on userspace agents.</p>
-          <div class="post-tags"><span class="tag">linux</span><span class="tag">counter-intel</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-26</span>
-        <div class="post-info">
-          <div class="post-title"><span>Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</span></div>
-          <p class="post-excerpt">Sequencing pipelines are networked, poorly segmented, and full of sensitive data. Mapping the attack surface of modern bioinformatics infrastructure.</p>
-          <div class="post-tags"><span class="tag">cyberbiosecurity</span><span class="tag">embedded</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-22</span>
-        <div class="post-info">
-          <div class="post-title"><a href="/posts/reading-proc.html">Reading /proc without root: what's actually visible</a></div>
-          <p class="post-excerpt">Linux's /proc filesystem is a window into the running system. Here's exactly what you can and can't see as a regular user.</p>
-          <div class="post-tags"><span class="tag">linux</span><span class="tag">internals</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-18</span>
-        <div class="post-info">
-          <div class="post-title"><span>Adversarial patches on embedded vision systems</span></div>
-          <p class="post-excerpt">Physical-world adversarial attacks against edge ML models running on ARM SBCs. Testing robustness on constrained hardware.</p>
-          <div class="post-tags"><span class="tag">AI</span><span class="tag">embedded</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-15</span>
-        <div class="post-info">
-          <div class="post-title"><a href="/posts/hello-world.html">Hello, world — why I'm writing here</a></div>
-          <p class="post-excerpt">Every blog starts somewhere. Here's what this one is about and what I expect to write.</p>
-          <div class="post-tags"><span class="tag">meta</span></div>
-        </div>
-      </li>
-
-      <li class="post-item">
-        <span class="post-date">2025-01-10</span>
-        <div class="post-info">
-          <div class="post-title"><span>Python OSINT toolkit: automating open-source collection at scale</span></div>
-          <p class="post-excerpt">A modular Python framework for structured OSINT collection — async scrapers, entity resolution, and graph-based link analysis.</p>
-          <div class="post-tags"><span class="tag">python</span><span class="tag">cyber-ops</span></div>
-        </div>
-      </li>
-
-    </ul>
-
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">Static HTML. No tracking. No analytics. No frameworks.</span>
-      <div class="footer-links">
-        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:hello@sysfail.net">Contact</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand">
+          <span class="brand-mark">Sysfail.net</span>
+          <span class="brand-name">Jeremy Hefner</span>
+        </a>
+        <nav class="header-nav" data-nav>
+          <a href="/" class="nav-pill">Home</a>
+          <a href="/about.html" class="nav-pill">About</a>
+          <a href="/writing.html" class="nav-pill">Writing</a>
+          <a href="/unix.html" class="nav-pill">Unix</a>
+          <a href="https://github.com/wvhefner" target="_blank" rel="noopener" class="nav-pill">GitHub</a>
+          <a href="mailto:hello@sysfail.net" class="nav-pill">Contact</a>
+        </nav>
       </div>
-    </div>
-  </footer>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="panel">
+            <span class="eyebrow">Writing</span>
+            <h1>Technical notes, <span>research threads, and field reflections.</span></h1>
+            <p>Published work from a practitioner's perspective on cyber operations, Unix and Linux security, and the broader systems that shape conflict and defense. This archive is intentionally small for now, but it is meant to grow with substance rather than filler.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container page-grid">
+          <ul class="post-list">
+            <li class="post-item">
+              <div class="post-date">Jan 22 2025</div>
+              <div class="post-info">
+                <h2 class="post-title"><a href="/posts/reading-proc.html">Reading /proc without root: what's actually visible</a></h2>
+                <p class="post-excerpt">Linux's <code>/proc</code> filesystem exposes more than many people realize. This note walks through what unprivileged users can inspect, where permission boundaries actually appear, and how to design tooling around those constraints.</p>
+                <div class="post-tags">
+                  <span class="tag">Linux</span>
+                  <span class="tag">Internals</span>
+                </div>
+              </div>
+            </li>
+
+            <li class="post-item">
+              <div class="post-date">Jan 15 2025</div>
+              <div class="post-info">
+                <h2 class="post-title"><a href="/posts/hello-world.html">Hello, world: why I'm writing here</a></h2>
+                <p class="post-excerpt">A short note on the purpose of this site, the writing style I want to keep, and why a simpler publishing workflow matters.</p>
+                <div class="post-tags">
+                  <span class="tag">Meta</span>
+                  <span class="tag">Writing</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="grid-two">
+            <div class="archive-card">
+              <div class="section-kicker">In development</div>
+              <h3>Upcoming lines of inquiry</h3>
+              <p>Future writing is likely to stay close to cyber operations, information conflict, and the edge cases where technical systems collide with strategic behavior.</p>
+            </div>
+            <div class="archive-card">
+              <div class="section-kicker">Intent</div>
+              <h3>Small archive, high signal</h3>
+              <p>I'd rather publish fewer pieces with a clear point of view than fill the page with placeholders or generic commentary.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-copy">Writing that stays close to systems, adversaries, and the practical realities of security work.</p>
+        <div class="footer-links">
+          <a href="/about.html">About</a>
+          <a href="/unix.html">Unix</a>
+          <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:hello@sysfail.net">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">&uarr;</a>
   <script src="script.js"></script>
-
 </body>
 </html>

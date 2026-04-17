@@ -1,54 +1,46 @@
-// ── Active nav link ──────────────────────────────────────────
-document.querySelectorAll('nav a').forEach(link => {
-  if (link.hostname !== location.hostname) return;
+const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+
+document.querySelectorAll('[data-nav] a').forEach(link => {
+  if (link.hostname !== window.location.hostname) return;
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#')) return;
   const linkPath = link.pathname.replace(/\/$/, '') || '/';
-  const curPath  = location.pathname.replace(/\/$/, '') || '/';
-  if (curPath === linkPath) {
+  if (linkPath === currentPath) {
     link.classList.add('active');
   }
 });
 
-// ── Scroll-to-top button ─────────────────────────────────────
 const scrollBtn = document.getElementById('scrollTop');
 if (scrollBtn) {
   window.addEventListener('scroll', () => {
-    scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    scrollBtn.classList.toggle('visible', window.scrollY > 500);
   }, { passive: true });
 
-  scrollBtn.addEventListener('click', e => {
-    e.preventDefault();
+  scrollBtn.addEventListener('click', event => {
+    event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
-// ── Copy buttons for code blocks ─────────────────────────────
 document.querySelectorAll('.prose pre').forEach(pre => {
-  const btn = document.createElement('button');
-  btn.className = 'copy-btn';
-  btn.textContent = 'copy';
-  pre.style.position = 'relative';
-  pre.appendChild(btn);
+  const button = document.createElement('button');
+  button.className = 'copy-btn';
+  button.type = 'button';
+  button.textContent = 'copy';
+  pre.appendChild(button);
 
-  btn.addEventListener('click', () => {
+  button.addEventListener('click', async () => {
     const code = pre.querySelector('code');
     const text = code ? code.textContent : pre.textContent.replace('copy', '').trim();
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = 'copied!';
-      setTimeout(() => { btn.textContent = 'copy'; }, 1800);
-    }).catch(() => {
-      btn.textContent = 'error';
-      setTimeout(() => { btn.textContent = 'copy'; }, 1800);
-    });
-  });
-});
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = 'copied';
+    } catch {
+      button.textContent = 'error';
+    }
 
-// ── Topic card hover glow follows cursor ─────────────────────
-document.querySelectorAll('.topic-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--glow-x', x + 'px');
-    card.style.setProperty('--glow-y', y + 'px');
+    window.setTimeout(() => {
+      button.textContent = 'copy';
+    }, 1500);
   });
 });

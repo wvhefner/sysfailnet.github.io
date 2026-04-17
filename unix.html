@@ -3,62 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unix — Jeremy Hefner</title>
-  <meta name="description" content="Writing on Unix and Linux security, kernel internals, and systems administration.">
+  <title>Unix | Jeremy Hefner</title>
+  <meta name="description" content="Unix and Linux security writing by Jeremy Hefner.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header>
-    <div class="header-inner">
-      <a href="/" class="site-name">Jeremy Hefner</a>
-      <nav>
-        <a href="/writing.html">Writing</a>
-        <a href="/publications.html">Publications</a>
-        <a href="/portfolio.html">Portfolio</a>
-        <a href="/unix.html" class="active">Unix</a>
-        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-
-    <div class="page-header">
-      <h1>Unix</h1>
-      <p>Notes and analysis on Unix and Linux security — kernel internals, privilege boundaries, filesystem forensics, hardening, and the operational security implications of the systems we depend on.</p>
-    </div>
-
-    <ul class="post-list">
-
-      <li class="post-item">
-        <span class="post-date">2025-01-22</span>
-        <div class="post-info">
-          <div class="post-title"><a href="/posts/reading-proc.html">Reading /proc without root: what's actually visible</a></div>
-          <p class="post-excerpt">Linux's /proc filesystem is a window into the running system. Here's exactly what you can and can't see as a regular user.</p>
-          <div class="post-tags"><span class="tag">linux</span><span class="tag">internals</span></div>
-        </div>
-      </li>
-
-    </ul>
-
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">Static HTML. No tracking. No analytics. No frameworks.</span>
-      <div class="footer-links">
-        <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:hello@sysfail.net">Contact</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="brand">
+          <span class="brand-mark">Sysfail.net</span>
+          <span class="brand-name">Jeremy Hefner</span>
+        </a>
+        <nav class="header-nav" data-nav>
+          <a href="/" class="nav-pill">Home</a>
+          <a href="/about.html" class="nav-pill">About</a>
+          <a href="/writing.html" class="nav-pill">Writing</a>
+          <a href="/unix.html" class="nav-pill">Unix</a>
+          <a href="https://github.com/wvhefner" target="_blank" rel="noopener" class="nav-pill">GitHub</a>
+          <a href="mailto:hello@sysfail.net" class="nav-pill">Contact</a>
+        </nav>
       </div>
-    </div>
-  </footer>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="panel">
+            <span class="eyebrow">Unix</span>
+            <h1>Unix and Linux notes <span>with a security lens.</span></h1>
+            <p>This corner of the site is for system internals, visibility boundaries, and the practical mechanics of working with Unix and Linux environments when security actually matters.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container page-grid">
+          <ul class="post-list">
+            <li class="post-item">
+              <div class="post-date">Jan 22 2025</div>
+              <div class="post-info">
+                <h2 class="post-title"><a href="/posts/reading-proc.html">Reading /proc without root: what's actually visible</a></h2>
+                <p class="post-excerpt">A walk through Linux process visibility, permission boundaries, and what defenders can still learn without elevation.</p>
+                <div class="post-tags">
+                  <span class="tag">Linux</span>
+                  <span class="tag">Internals</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="archive-card">
+            <div class="section-kicker">More to come</div>
+            <h3>Future Unix writing</h3>
+            <p>Expect this area to expand into process visibility, system hardening, kernel-adjacent observation, and the operational implications of Unix design decisions.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="footer-copy">Focused notes on the Unix and Linux side of security practice.</p>
+        <div class="footer-links">
+          <a href="/writing.html">Writing</a>
+          <a href="/about.html">About</a>
+          <a href="https://github.com/wvhefner" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:hello@sysfail.net">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
   <a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">&uarr;</a>
   <script src="script.js"></script>
-
 </body>
 </html>
