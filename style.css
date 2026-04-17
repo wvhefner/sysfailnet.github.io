@@ -466,6 +466,70 @@ main {
   border-radius: 0 4px 4px 0;
 }
 
+/* ── CV page ── */
+
+.cv-section {
+  margin-bottom: 2.5rem;
+}
+
+.cv-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.cv-section .section-label {
+  margin-bottom: 1.1rem;
+}
+
+.cv-section .stub-note {
+  font-size: 0.95rem;
+  padding: 1rem 1.2rem;
+}
+
+.cv-body-note {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.cv-interests {
+  max-width: 620px;
+}
+
+.cv-post-list .post-item {
+  margin: 0;
+}
+
+.cv-contact {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 520px;
+}
+
+.cv-contact-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-soft);
+}
+
+.cv-contact-row:first-child {
+  border-top: none;
+}
+
+.cv-contact-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+
 /* ── Post page ── */
 
 article {
