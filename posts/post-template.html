@@ -1,0 +1,114 @@
+<!doctype html>
+<!-- ============================================================
+     POST TEMPLATE — how to publish a new field-log entry
+     ------------------------------------------------------------
+     1. Copy this file to  posts/your-slug.html
+     2. Edit the <title>, <meta description>, and og tags below.
+     3. Fill the [ BRACKETED ] fields in the <body>:
+        title, standfirst, date, tags, and the body itself.
+     4. Add a matching <a class="entry"> row to  writing.html
+        (and, if you want it on the home page, to index.html).
+     Body building blocks you can use are shown in-line below:
+     headings, paragraphs, lists, blockquote, code, callout,
+     and footnotes. Delete what you don't need.
+     ============================================================ -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[ POST TITLE ] — Jeremy Hefner</title>
+  <meta name="description" content="[ ONE-SENTENCE SUMMARY ]">
+  <meta property="og:title" content="[ POST TITLE ] — Jeremy Hefner">
+  <meta property="og:description" content="[ ONE-SENTENCE SUMMARY ]">
+  <meta property="og:image" content="../images/og.png">
+  <meta name="theme-color" content="#0a1522">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <div class="statusbar">
+    <div class="shell">
+      <span class="dot"></span>
+      <span><b>SYSFAIL.NET</b></span>
+      <span class="sep">/</span>
+      <span class="hide-sm">FIELD LOG · ENTRY</span>
+      <span class="push">STATUS:&nbsp;<b>OPEN TO CONVERSATIONS</b></span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell">
+      <a class="wordmark" href="../index.html"><span class="glyph">JH</span> Jeremy Hefner</a>
+      <nav aria-label="Primary">
+        <a href="../research.html">Research</a>
+        <a href="../writing.html">Writing</a>
+        <a href="../cv.html">CV</a>
+        <a href="mailto:hello@sysfail.net" class="nav-contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="post-wrap">
+    <a class="post-back" href="../writing.html">← Field log</a>
+
+    <article class="post">
+      <div class="post-meta">
+        <time>[ DD MON YYYY ]</time>
+        <span class="chip">[ TAG ]</span>
+        <span class="chip">[ TAG ]</span>
+      </div>
+      <h1>[ POST TITLE ]</h1>
+      <p class="standfirst">[ Standfirst: one or two sentences that set up the piece and make the reader want the rest. ]</p>
+      <div class="rule"></div>
+
+      <div class="post-body">
+        <p>[ Opening paragraph. Get to the point — what is this about and why does it matter. ]</p>
+
+        <h2>[ Section heading ]</h2>
+        <p>[ Body paragraph. Use <a href="#">inline links</a>, <strong>emphasis</strong>, and <code>inline code</code> as needed. ]</p>
+
+        <ul>
+          <li>[ List item ]</li>
+          <li>[ List item ]</li>
+        </ul>
+
+        <blockquote>[ A pull quote or key claim you want to sit apart from the flow. ]</blockquote>
+
+        <h3>[ Sub-heading ]</h3>
+        <pre><code>// code block
+$ example --command here</code></pre>
+
+        <div class="callout">
+          <span class="tag">Note</span>
+          <p>[ A caveat, assumption, or aside worth flagging without breaking the main argument. ]</p>
+        </div>
+
+        <p>[ Closing paragraph. ]</p>
+
+        <hr class="foot">
+        <div class="footnotes">
+          <p>[1] [ Footnote or source. ]</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <span>© 2026 Jeremy Hefner</span>
+      <span>Static by design · No tracking · No analytics</span>
+      <a href="../writing.html">Field log ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var bar=document.getElementById('progress');
+      if(!bar)return;
+      var tick=function(){var h=document.documentElement,max=(h.scrollHeight-h.clientHeight)||1;bar.style.width=(h.scrollTop/max*100)+'%';};
+      addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();
+    })();
+  </script>
+</body>
+</html>

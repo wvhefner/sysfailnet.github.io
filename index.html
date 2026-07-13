@@ -3,64 +3,160 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jeremy Hefner — Cyber Operations & Information Warfare</title>
+  <title>Jeremy Hefner — Cyber Operations &amp; Information Warfare</title>
   <meta name="description" content="Research and writing on cyber operations, intelligence, information warfare, artificial intelligence, and systems thinking.">
-  <meta property="og:title" content="Jeremy Hefner — Cyber Operations & Information Warfare">
+  <meta property="og:title" content="Jeremy Hefner — Cyber Operations &amp; Information Warfare">
   <meta property="og:description" content="Research and writing on conflict in the information age.">
   <meta property="og:image" content="images/og.png">
+  <meta name="theme-color" content="#0a1522">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="progress"></div>
+  <div class="progress" id="progress"></div>
+
+  <div class="statusbar">
+    <div class="shell">
+      <span class="dot"></span>
+      <span><b>SYSFAIL.NET</b></span>
+      <span class="sep">/</span>
+      <span class="hide-sm">FIELD STATION · PORTLAND, OR</span>
+      <span class="push">STATUS:&nbsp;<b>OPEN TO CONVERSATIONS</b></span>
+      <span class="sep hide-sm">/</span>
+      <span class="hide-sm" id="clock">--:--:-- UTC</span>
+    </div>
+  </div>
+
   <header class="site-header">
-    <a class="wordmark" href="#top"><span>JH</span> Jeremy Hefner</a>
-    <nav aria-label="Primary navigation"><a href="#research">Research</a><a href="#writing">Writing</a><a href="#cv">CV</a><a href="mailto:hello@sysfail.net" class="nav-contact">Contact ↗</a></nav>
+    <div class="shell">
+      <a class="wordmark" href="index.html"><span class="glyph">JH</span> Jeremy Hefner</a>
+      <nav aria-label="Primary">
+        <a href="research.html">Research</a>
+        <a href="writing.html">Writing</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:hello@sysfail.net" class="nav-contact">Contact</a>
+      </nav>
+    </div>
   </header>
+
   <main id="top">
     <section class="hero shell">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> Researcher &amp; security professional · Portland, Oregon</p>
-        <h1>Studying conflict<br>in the <em>information age.</em></h1>
-        <p class="dek">I work at the intersection of cybersecurity, intelligence, and human-centric security—combining technical practice with strategic analysis to understand and counter evolving threats.</p>
-        <div class="hero-actions"><a href="#writing" class="button primary">Read my work <b>→</b></a><a href="#cv" class="button text-button">View curriculum vitae <b>↘</b></a></div>
+        <p class="eyebrow tag"><span class="dot"></span> Researcher · Security practitioner</p>
+        <h1>Conflict in the<br><em>information age.</em></h1>
+        <p class="dek">I work at the intersection of cybersecurity, intelligence, and human-centric security — pairing technical practice with strategic analysis to understand and counter evolving threats.</p>
+        <div class="hero-actions">
+          <a href="writing.html" class="button primary">Read the log →</a>
+          <a href="cv.html" class="button ghost">View record ↘</a>
+        </div>
       </div>
-      <aside class="profile-card">
-        <div class="portrait-wrap"><img src="images/profile.png" alt="Portrait of Jeremy Hefner"><span class="portrait-mark">FIELD NOTES<br>/ 2025</span></div>
-        <div class="profile-meta"><p>Current focus</p><strong>Cyber operations, information warfare, AI &amp; systems thinking</strong></div>
+
+      <aside class="operator" aria-label="Profile">
+        <div class="operator-head">
+          <span>OPERATOR</span>
+          <span class="live">ACTIVE</span>
+        </div>
+        <div class="portrait">
+          <img src="images/profile.png" alt="Portrait of Jeremy Hefner">
+        </div>
+        <div class="operator-meta">
+          <dl>
+            <dt>Base</dt><dd>Portland, OR</dd>
+            <dt>Focus</dt><dd>Cyber ops · InfoWar · AI</dd>
+            <dt>Channel</dt><dd>hello@sysfail.net</dd>
+          </dl>
+        </div>
       </aside>
     </section>
-    <section class="ticker" aria-label="Research themes"><div>CYBER OPERATIONS <i>✦</i> INFORMATION WARFARE <i>✦</i> ARTIFICIAL INTELLIGENCE <i>✦</i> SYSTEMS THINKING <i>✦</i> CYBERBIOSECURITY</div></section>
-    <section id="research" class="research shell section-pad">
-      <div class="section-head"><div><p class="kicker">Research agenda / 2025</p><h2>Questions worth<br>staying with.</h2></div><p>My research follows the connective tissue between machines, institutions, and human judgment—especially where those systems become contested.</p></div>
-      <div class="interest-grid">
-        <article><span>01</span><h3>Cyber Operations &amp; Intelligence</h3><p>Adversary behavior, defensive operations, threat intelligence, and the systems that connect them.</p></article>
-        <article><span>02</span><h3>Information &amp; Cognitive Warfare</h3><p>Narratives, influence, perception, and the changing economics of operations in the information environment.</p></article>
-        <article><span>03</span><h3>Artificial Intelligence</h3><p>The security implications of intelligent systems—from operational acceleration to adversarial use.</p></article>
-        <article><span>04</span><h3>Systems Thinking</h3><p>Understanding security problems as interactions among technical, institutional, and human systems.</p></article>
-        <article><span>05</span><h3>Electronics Engineering</h3><p>An expanding practice in preparation for a more hardware-defined and cyber-physical future.</p></article>
-        <article><span>06</span><h3>Cyberbiosecurity</h3><p>A continuing side research area at the convergence of biological data, infrastructure, and cyber risk.</p></article>
+
+    <div class="signal shell" aria-hidden="true">
+      <svg class="wave" viewBox="0 0 200 26" preserveAspectRatio="none" fill="var(--vermilion)">
+        <rect x="0" y="12" width="2" height="2"/><rect x="6" y="10" width="2" height="6"/><rect x="12" y="7" width="2" height="12"/><rect x="18" y="3" width="2" height="20"/><rect x="24" y="9" width="2" height="8"/><rect x="30" y="1" width="2" height="24"/><rect x="36" y="11" width="2" height="4"/><rect x="42" y="6" width="2" height="14"/><rect x="48" y="2" width="2" height="22"/><rect x="54" y="10" width="2" height="6"/><rect x="60" y="5" width="2" height="16"/><rect x="66" y="8" width="2" height="10"/><rect x="72" y="0" width="2" height="26"/><rect x="78" y="9" width="2" height="8"/><rect x="84" y="4" width="2" height="18"/><rect x="90" y="11" width="2" height="4"/><rect x="96" y="7" width="2" height="12"/><rect x="102" y="2" width="2" height="22"/><rect x="108" y="10" width="2" height="6"/><rect x="114" y="6" width="2" height="14"/><rect x="120" y="12" width="2" height="2"/><rect x="126" y="8" width="2" height="10"/><rect x="132" y="3" width="2" height="20"/><rect x="138" y="11" width="2" height="4"/><rect x="144" y="9" width="2" height="8"/><rect x="150" y="12" width="2" height="2"/><rect x="156" y="10" width="2" height="6"/><rect x="162" y="12" width="2" height="2"/><rect x="168" y="11" width="2" height="4"/><rect x="174" y="12" width="2" height="2"/><rect x="180" y="12" width="2" height="2"/><rect x="186" y="12" width="2" height="2"/><rect x="192" y="12" width="2" height="2"/>
+      </svg>
+      <div class="domains">
+        <span><i>✦</i>CYBER OPERATIONS</span>
+        <span><i>✦</i>INFORMATION WARFARE</span>
+        <span><i>✦</i>ARTIFICIAL INTELLIGENCE</span>
+        <span><i>✦</i>SYSTEMS THINKING</span>
+        <span><i>✦</i>CYBERBIOSECURITY</span>
+      </div>
+    </div>
+
+    <!-- selected writing teaser -->
+    <section class="section shell">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Writing // selected</p>
+          <h2>From the<br>field log.</h2>
+        </div>
+        <p class="lead">Technical notes, research fragments, and working drafts. The full index lives on the writing page.</p>
+      </div>
+
+      <div class="log">
+        <a class="entry" href="posts/reading-proc.html">
+          <span class="idx">LOG.01</span>
+          <div>
+            <div class="entry-meta"><time>22 JAN 2025</time><span class="chip">Linux</span><span class="chip">Internals</span></div>
+            <h3>Reading /proc without root: what’s actually visible</h3>
+            <p>Linux’s /proc filesystem is a window into the running system. Here is exactly what an unprivileged user can — and cannot — see.</p>
+          </div>
+          <b class="go">↗</b>
+        </a>
+
+        <a class="entry" href="posts/hello-world.html">
+          <span class="idx">LOG.02</span>
+          <div>
+            <div class="entry-meta"><time>15 JAN 2025</time><span class="chip">Meta</span></div>
+            <h3>Hello, world — why I’m writing here</h3>
+            <p>A working notebook for technical notes, research fragments, and thinking in public.</p>
+          </div>
+          <b class="go">↗</b>
+        </a>
+
+        <div class="entry is-draft featured">
+          <span class="idx">LOG.03</span>
+          <div>
+            <div class="entry-meta"><time>In progress</time><span class="chip">Information Warfare</span><span class="chip">AI</span><span class="chip draft">Draft</span></div>
+            <h3>LLMs as influence accelerants: automating narrative warfare</h3>
+            <p>How large language models are reshaping the economics of influence operations — and why current detection methods are already obsolete.</p>
+          </div>
+          <b class="go">·</b>
+        </div>
+      </div>
+
+      <div class="log-more">
+        <a href="writing.html">View full log →</a>
       </div>
     </section>
-    <section id="writing" class="writing section-pad"><div class="shell">
-      <div class="section-head light"><div><p class="kicker">Selected writing</p><h2>Analysis &amp; field notes.</h2></div><p>Technical notes, research fragments, and working drafts. Short enough to finish; rigorous enough to be useful.</p></div>
-      <div class="article-list">
-        <a class="article featured" href="#writing"><div class="article-index">01</div><div class="article-main"><div class="article-meta"><time>20 FEB 2025</time><span>Information Warfare</span><span>AI</span></div><h3>LLMs as influence accelerants: automating narrative warfare</h3><p>How large language models are reshaping the economics of influence operations—and why current detection methods are already obsolete.</p></div><b class="arrow">↗</b></a>
-        <a class="article" href="#writing"><div class="article-index">02</div><div class="article-main"><div class="article-meta"><time>12 FEB 2025</time><span>Rust</span><span>Cyber Operations</span></div><h3>Building a threat intelligence pipeline in Rust</h3><p>Replacing a fragile Python ETL chain with a Rust-based ingestion pipeline: architecture decisions, benchmarks, and lessons from production.</p></div><b class="arrow">↗</b></a>
-        <a class="article" href="#writing"><div class="article-index">03</div><div class="article-main"><div class="article-meta"><time>03 FEB 2025</time><span>Linux</span><span>Counterintelligence</span></div><h3>eBPF for counterintelligence: tracing adversary behavior at the kernel level</h3><p>Instrumenting Linux systems for real-time detection of lateral movement and data staging without userspace agents.</p></div><b class="arrow">↗</b></a>
-        <a class="article" href="#writing"><div class="article-index">04</div><div class="article-main"><div class="article-meta"><time>26 JAN 2025</time><span>Cyberbiosecurity</span><span>Infrastructure</span></div><h3>Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</h3><p>Mapping the attack surface of modern bioinformatics infrastructure and its uniquely sensitive data.</p></div><b class="arrow">↗</b></a>
-        <a class="article" href="https://www.sysfail.net/posts/reading-proc.html"><div class="article-index">05</div><div class="article-main"><div class="article-meta"><time>22 JAN 2025</time><span>Linux</span><span>Internals</span></div><h3>Reading /proc without root: what’s actually visible</h3><p>Linux’s /proc filesystem is a window into the running system. Here is exactly what an unprivileged user can—and cannot—see.</p></div><b class="arrow">↗</b></a>
-        <a class="article" href="https://www.sysfail.net/posts/hello-world.html"><div class="article-index">06</div><div class="article-main"><div class="article-meta"><time>15 JAN 2025</time><span>Meta</span></div><h3>Hello, world—why I’m writing here</h3><p>A working notebook for technical notes, research fragments, and thinking in public.</p></div><b class="arrow">↗</b></a>
+
+    <section class="section shell" style="padding-top:0">
+      <div class="channel">
+        <div>
+          <p class="kicker">Open channel</p>
+          <h2>Let’s compare notes.</h2>
+        </div>
+        <div class="links">
+          <a href="mailto:hello@sysfail.net">hello@sysfail.net ↗</a>
+          <a href="https://github.com/wvhefner">github.com/wvhefner ↗</a>
+        </div>
       </div>
-    </div></section>
-    <section id="cv" class="cv shell section-pad">
-      <div class="section-head"><div><p class="kicker">Curriculum vitae</p><h2>Practice informs<br>the research.</h2></div><p>Security work grounded in technical operations, intelligence analysis, and an interdisciplinary view of complex systems.</p></div>
-      <div class="cv-grid">
-        <div><h3>Education</h3><div class="cv-item"><time>Expected 2027</time><strong>M.A. Intelligence &amp; Security Studies</strong><p>Augusta University</p></div><div class="cv-item"><strong>M.S. Information Technology</strong><p>Illinois Institute of Technology</p></div><div class="cv-item"><strong>B.S. Information Technology</strong><p>Western Governors University</p></div></div>
-        <div><h3>Credentials</h3><div class="credential">CISSP · ISC2<span>✓</span></div><div class="credential">GCTI · GIAC Cyber Threat Intelligence<span>✓</span></div><div class="credential">GCIA · GIAC Intrusion Analyst<span>✓</span></div><div class="credential">Security+ · CompTIA<span>✓</span></div><div class="credential">Network+ · CompTIA<span>✓</span></div></div>
-      </div>
-      <div class="contact-strip"><div><p>Open to research conversations</p><h2>Let’s compare notes.</h2></div><div><a href="mailto:hello@sysfail.net">hello@sysfail.net ↗</a><a href="https://github.com/wvhefner">github.com/wvhefner ↗</a></div></div>
     </section>
   </main>
-  <footer><div class="shell"><span>© 2025 Jeremy Hefner</span><span>Static by design · No tracking · No analytics</span><a href="#top">Back to top ↑</a></div></footer>
+
+  <footer>
+    <div class="shell">
+      <span>© 2026 Jeremy Hefner</span>
+      <span>Static by design · No tracking · No analytics</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var bar=document.getElementById('progress');
+      if(bar){var tick=function(){var h=document.documentElement,max=(h.scrollHeight-h.clientHeight)||1;bar.style.width=(h.scrollTop/max*100)+'%';};addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();}
+      var clock=document.getElementById('clock');
+      if(clock){var run=function(){clock.textContent=new Date().toISOString().slice(11,19)+' UTC';};run();setInterval(run,1000);}
+    })();
+  </script>
 </body>
 </html>
