@@ -3,123 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Field Log — Jeremy Hefner</title>
-  <meta name="description" content="Writing on cyber operations, information warfare, AI, and systems thinking.">
-  <meta name="theme-color" content="#0a1522">
+  <title>Writing — Jeremy Hefner</title>
+  <meta name="description" content="Writing and publications by Jeremy Hefner on cybersecurity, intelligence, and information warfare.">
+  <meta property="og:title" content="Writing — Jeremy Hefner">
+  <meta property="og:description" content="Writing and publications on cybersecurity, intelligence, and information warfare.">
+  <meta property="og:image" content="images/profile.png">
+  <meta name="theme-color" content="#faf8f3">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-
-  <div class="statusbar">
-    <div class="shell">
-      <span class="dot"></span>
-      <span><b>SYSFAIL.NET</b></span>
-      <span class="sep">/</span>
-      <span class="hide-sm">FIELD LOG · INDEX</span>
-      <span class="push">STATUS:&nbsp;<b>OPEN TO CONVERSATIONS</b></span>
-    </div>
-  </div>
-
   <header class="site-header">
     <div class="shell">
-      <a class="wordmark" href="index.html"><span class="glyph">JH</span> Jeremy Hefner</a>
+      <a class="wordmark" href="index.html">Jeremy Hefner</a>
       <nav aria-label="Primary">
         <a href="research.html">Research</a>
         <a href="writing.html" class="active" aria-current="page">Writing</a>
         <a href="cv.html">CV</a>
-        <a href="mailto:hello@sysfail.net" class="nav-contact">Contact</a>
+        <a href="mailto:hello@sysfail.net">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="shell" style="padding-top:80px">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Field log // complete index</p>
-        <h2>Everything, in<br>reverse order.</h2>
+  <main class="shell" style="padding-top:12px">
+    <section class="section" style="border-top:none">
+      <h2>Writing</h2>
+      <p>Essays and articles on cybersecurity, intelligence, and information warfare, published here as they're finished.</p>
+      <div class="placeholder">
+        Nothing published here yet — check back soon.
       </div>
-      <p class="lead">Published pieces and working drafts. Drafts are listed so the shape of what I’m thinking about is visible before it’s finished.</p>
-    </div>
-
-    <div class="log" style="margin-bottom:90px">
-      <a class="entry" href="posts/reading-proc.html">
-        <span class="idx">2025.05</span>
-        <div>
-          <div class="entry-meta"><time>22 JAN 2025</time><span class="chip">Linux</span><span class="chip">Internals</span></div>
-          <h3>Reading /proc without root: what’s actually visible</h3>
-          <p>Linux’s /proc filesystem is a window into the running system. Here is exactly what an unprivileged user can — and cannot — see.</p>
-        </div>
-        <b class="go">↗</b>
-      </a>
-
-      <a class="entry" href="posts/hello-world.html">
-        <span class="idx">2025.06</span>
-        <div>
-          <div class="entry-meta"><time>15 JAN 2025</time><span class="chip">Meta</span></div>
-          <h3>Hello, world — why I’m writing here</h3>
-          <p>A working notebook for technical notes, research fragments, and thinking in public.</p>
-        </div>
-        <b class="go">↗</b>
-      </a>
-
-      <div class="entry is-draft featured">
-        <span class="idx">DRAFT</span>
-        <div>
-          <div class="entry-meta"><time>In progress</time><span class="chip">Information Warfare</span><span class="chip">AI</span><span class="chip draft">Draft</span></div>
-          <h3>LLMs as influence accelerants: automating narrative warfare</h3>
-          <p>How large language models are reshaping the economics of influence operations — and why current detection methods are already obsolete.</p>
-        </div>
-        <b class="go">·</b>
-      </div>
-
-      <div class="entry is-draft">
-        <span class="idx">DRAFT</span>
-        <div>
-          <div class="entry-meta"><time>In progress</time><span class="chip">Rust</span><span class="chip">Cyber Operations</span><span class="chip draft">Draft</span></div>
-          <h3>Building a threat intelligence pipeline in Rust</h3>
-          <p>Replacing a fragile Python ETL chain with a Rust-based ingestion pipeline: architecture decisions, benchmarks, and lessons from production.</p>
-        </div>
-        <b class="go">·</b>
-      </div>
-
-      <div class="entry is-draft">
-        <span class="idx">DRAFT</span>
-        <div>
-          <div class="entry-meta"><time>In progress</time><span class="chip">Linux</span><span class="chip">Counterintelligence</span><span class="chip draft">Draft</span></div>
-          <h3>eBPF for counterintelligence: tracing adversary behavior at the kernel level</h3>
-          <p>Instrumenting Linux systems for real-time detection of lateral movement and data staging without userspace agents.</p>
-        </div>
-        <b class="go">·</b>
-      </div>
-
-      <div class="entry is-draft">
-        <span class="idx">DRAFT</span>
-        <div>
-          <div class="entry-meta"><time>In progress</time><span class="chip">Cyberbiosecurity</span><span class="chip">Infrastructure</span><span class="chip draft">Draft</span></div>
-          <h3>Genomic data exfiltration: the cyberbiosecurity threat no one is modeling</h3>
-          <p>Mapping the attack surface of modern bioinformatics infrastructure and its uniquely sensitive data.</p>
-        </div>
-        <b class="go">·</b>
-      </div>
-    </div>
+    </section>
   </main>
 
   <footer>
     <div class="shell">
       <span>© 2026 Jeremy Hefner</span>
-      <span>Static by design · No tracking · No analytics</span>
-      <a href="index.html">Home ↑</a>
+      <a href="index.html">Home</a>
     </div>
   </footer>
-
-  <script>
-    (function(){
-      var bar=document.getElementById('progress');
-      if(!bar)return;
-      var tick=function(){var h=document.documentElement,max=(h.scrollHeight-h.clientHeight)||1;bar.style.width=(h.scrollTop/max*100)+'%';};
-      addEventListener('scroll',tick,{passive:true});addEventListener('resize',tick);tick();
-    })();
-  </script>
 </body>
 </html>
